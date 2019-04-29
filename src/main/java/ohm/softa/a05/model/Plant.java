@@ -1,16 +1,14 @@
 package ohm.softa.a05.model;
 
-public abstract class Plant implements Comparable {
+public abstract class Plant implements Comparable<Plant> {
 
   private double height;
   private String family, name;
-  private PlantColor color;
 
-  Plant(String name, String family, double height, PlantColor color) {
+  Plant(String name, String family, double height) {
     this.name = name;
     this.family = family;
     this.height = height;
-    this.color = color;
   }
 
   public double getHeight() {
@@ -25,7 +23,10 @@ public abstract class Plant implements Comparable {
     return name;
   }
 
-  public PlantColor getColor() {
-    return color;
+  public abstract PlantColor getColor();
+
+  @Override
+  public int compareTo(Plant o) {
+    return Double.compare(this.height, o.height);
   }
 }

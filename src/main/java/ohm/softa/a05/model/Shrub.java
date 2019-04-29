@@ -2,8 +2,15 @@ package ohm.softa.a05.model;
 
 public class Shrub extends Plant {
 
+  private PlantColor color;
+
   public Shrub(String name, String family, double height, PlantColor color) {
-    super(name, family, height, color);
+    super(name, family, height);
+
+    if(color != PlantColor.GREEN)
+      throw new IllegalArgumentException("Shrub must be green");
+
+    this.color = color;
   }
 
   @Override
@@ -23,11 +30,6 @@ public class Shrub extends Plant {
 
   @Override
   public PlantColor getColor() {
-    return super.getColor();
-  }
-
-  @Override
-  public int compareTo(Object o) {
-    return 0;
+    return color;
   }
 }
