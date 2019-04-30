@@ -51,10 +51,9 @@ public class PlantBedTest {
     bed.add(shrub2);
     bed.add(shrub3);
 
-    SimpleList<Plant> equalList = new SimpleListImpl<>();
-    equalList.add(flower3);
-    System.out.println(equalList);
-
-    assertEquals(bed.getPlantsByColor(PlantColor.ORANGE), equalList);
+    SimpleList<Plant> output = bed.getPlantsByColor(PlantColor.ORANGE);
+    for(Plant p : output) {
+      assertEquals(p.getColor(), PlantColor.ORANGE);
+    }
   }
 }
